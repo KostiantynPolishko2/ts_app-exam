@@ -12,10 +12,10 @@ const getSelection = (selectedValue: SelectedOptionValue | SelectedOptionValue[]
 
 const FormSelectSearch: FC<FormSelectSearchProps> = () => {
 
-   const [select, setSelect] = useState<string>('none');
+   const [select, setSelect] = useState<string | null>('none');
 
    const handleSelect = (selectedValue: SelectedOptionValue | SelectedOptionValue[]): void => {
-      setSelect(selectedValue.toLocaleString());
+      setSelect(selectedValue?.toLocaleString());
    }
 
 
