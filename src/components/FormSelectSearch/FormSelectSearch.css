@@ -1,0 +1,37 @@
+.select-search-input {
+    height: 30px;
+    min-width: fit-content;
+    border-radius: 5px;
+    padding: 0;
+    padding-left: 5px;
+    background-color: rgb(239, 243, 248);
+}
+
+.select-search-container {
+    width: 100px;
+}
+
+.select-search-select {
+    background-color: aqua;
+    padding: 0;
+    margin: -10px;
+    width: fit-content;
+    height: fit-content
+}
+
+.select-search-container {
+    background-color: blueviolet;
+}
+
+.select-search-option {
+    height: fit-content;
+    background-color: brown;
+    padding: 0;
+    margin: 2px;
+    margin-left: -30px;
+    width: fit-content;
+}
+
+.select-search-not-found {
+    padding: 0;
+}
