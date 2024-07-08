@@ -6,23 +6,22 @@ import { EmitFlags } from 'typescript';
 
 interface BurgerMenuProps {}
 
+const handleDisplay = (flag: boolean):string => (
+   flag? 'block' : 'none'
+);
 
 const BurgerMenu: FC<BurgerMenuProps> = (): React.FunctionComponentElement<BurgerMenuProps> => {
-
-   const [isDisplay, setDisplay] = useState<string>('none');
-
-   const handleDisplay = (flag: boolean) => {
-      flag? setDisplay('block') : setDisplay('none');
-   }
+   
+   const [isOpen, setOpen] = useState<boolean>(false);
 
    return (
       <BurgerMenuWrapper className='topnav'>
          <div style={{backgroundColor: 'grey', width: 'fit-content', height: 51 + 'px', float: 'left'}}>
             <Hamburger color='whitesmoke' background-color='grey' rounded
-            onToggle={handleDisplay}/>
+            toggled={isOpen} toggle={setOpen}/>
          </div>
          
-         <div id="myLinks" style={{display: `${isDisplay}`}}>
+         <div id="myLinks" style={{display: `${handleDisplay(isOpen)}`}}>
                <a href="#news">Number</a>
                <a href="#contact">VinCode</a>
                <a href="#about">MarkModel</a>
