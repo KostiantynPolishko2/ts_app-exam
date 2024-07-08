@@ -2,7 +2,6 @@ import React, { FC, FunctionComponentElement, ReactHTMLElement, ReactNode } from
 import { BurgerMenuWrapper } from './BurgerMenu.styled';
 import './BurgerMenu.css';
 import Hamburger from 'hamburger-react';
-import { BtnBurgerMenu } from './BurgerMenu.styled';
 
 interface BurgerMenuProps {}
 
@@ -22,7 +21,6 @@ const BurgerMenu: FC<BurgerMenuProps> = (): React.FunctionComponentElement<Burge
             <Hamburger color='whitesmoke' background-color='grey' rounded
             onToggle={flag => {hideShowBurger(flag, links)}}/>
          </div>
-         {/* <BtnBurgerMenu ></BtnBurgerMenu> */}
          
          <div id="myLinks">
                <a href="#news">Number</a>
