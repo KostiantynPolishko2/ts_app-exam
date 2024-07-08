@@ -1,26 +1,39 @@
-import React, { FC } from 'react';
+import React, { FC, FunctionComponentElement, ReactHTMLElement, ReactNode } from 'react';
 import { BurgerMenuWrapper } from './BurgerMenu.styled';
 import './BurgerMenu.css';
+import Hamburger from 'hamburger-react';
+import { BtnBurgerMenu } from './BurgerMenu.styled';
 
 interface BurgerMenuProps {}
 
-const hideShowMenu = (e: React.FormEvent<HTMLElement>): void => {
-   const links: HTMLElement = e.currentTarget.nextElementSibling as HTMLElement;
-   links.style.display = (links.style.display === 'none'? 'block' : 'none');
+const hideShowBurger = (flag: boolean, links: HTMLElement) => {
+
+   flag? console.log('ShowBurger') : console.log('HideBurger');
+   flag? links.style.display = 'block' : links.style.display = 'none';
 }
 
-const BurgerMenu: FC<BurgerMenuProps> = () => (
- <BurgerMenuWrapper className='topnav'>
-   <a className='icon' onClick={hideShowMenu}>
-      <i className='fa fa-bars'></i>
-   </a>
-   <div id="myLinks">
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-   </div>
-   <a href="#home" className="active">Compare</a>
- </BurgerMenuWrapper>
-);
+const BurgerMenu: FC<BurgerMenuProps> = (): React.FunctionComponentElement<BurgerMenuProps> => {
+
+   const links = document.getElementById('myLinks') as HTMLElement;
+
+   return (
+      <BurgerMenuWrapper className='topnav'>
+         <div style={{backgroundColor: 'grey', width: 'fit-content', height: 51 + 'px', float: 'left'}}>
+            <Hamburger color='whitesmoke' background-color='grey' rounded
+            onToggle={flag => {hideShowBurger(flag, links)}}/>
+         </div>
+         {/* <BtnBurgerMenu ></BtnBurgerMenu> */}
+         
+         <div id="myLinks">
+               <a href="#news">Number</a>
+               <a href="#contact">VinCode</a>
+               <a href="#about">MarkModel</a>
+               <a href="#about">Region</a>
+               <a href="#about">Price</a>
+         </div>
+         <a href="#home" className="active">Compare</a>
+      </BurgerMenuWrapper>
+     );
+}
 
 export default BurgerMenu;
