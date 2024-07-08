@@ -3,9 +3,7 @@ import Hamburger from 'hamburger-react';
 import { Link, Routes, Route } from 'react-router-dom';
 import { BurgerMenuWrapper } from './BurgerMenu.styled';
 import './BurgerMenu.css';
-import Compare from '../Section/Compare';
-import Number from '../Section/Number';
-import VinCode from '../Section/VinCode';
+import Section from '../Section/Section';
 import { SearcSelect } from './BurgerMenu.styled';
 
 interface BurgerMenuProps {}
@@ -33,13 +31,7 @@ const BurgerMenu: FC<BurgerMenuProps> = (): React.FunctionComponentElement<Burge
             </div>
             <Link to={'/compare'} className="active">Compare</Link>
          </BurgerMenuWrapper>
-         <section style={{display: `${handleDisplay(isOpen)}`}}>
-            <Routes>
-               <Route loader path='/number' element={<Number />}/>
-               <Route path='/vincode' element={<VinCode />}/>
-               <Route path='/compare' element={<Compare/>}/>
-            </Routes>
-         </section>
+         <Section number='/number' vincode='/vincode' compare='/compare'/>
       </>
      );
 }
