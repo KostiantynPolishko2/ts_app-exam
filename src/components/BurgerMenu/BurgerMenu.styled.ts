@@ -2,12 +2,15 @@ import styled, { css } from 'styled-components';
 import Hamburger from 'hamburger-react';
 
 export const BurgerMenuWrapper = styled.div.attrs({
-    className: 'test'
 })`
 
 `;
 
-export const BtnBurgerMenu = styled(Hamburger).attrs({
-})`
-    background-color: grey;
+export const SearcSelect = styled.p`
+    float: left;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    background-color: lightblue;
 `;

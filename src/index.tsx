@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import 'the-new-css-reset';
 import BurgerMenu from './components/BurgerMenu/BurgerMenu';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <BurgerMenu />
+    <BrowserRouter>
+      <BurgerMenu/>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
