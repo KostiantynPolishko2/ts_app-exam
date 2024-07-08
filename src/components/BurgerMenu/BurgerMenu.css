@@ -8,9 +8,9 @@
 }
 
 /* Hide the links inside the navigation menu (except for logo/home) */
-.topnav #myLinks {
+/* .topnav #myLinks {
     display: block;
-}
+} */
 
 /* Style navigation menu links */
 .topnav a {

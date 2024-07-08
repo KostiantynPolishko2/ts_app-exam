@@ -1,28 +1,28 @@
-import React, { FC, FunctionComponentElement, ReactHTMLElement, ReactNode } from 'react';
+import React, { FC, useState } from 'react';
 import { BurgerMenuWrapper } from './BurgerMenu.styled';
 import './BurgerMenu.css';
 import Hamburger from 'hamburger-react';
+import { EmitFlags } from 'typescript';
 
 interface BurgerMenuProps {}
 
-const hideShowBurger = (flag: boolean, links: HTMLElement) => {
-
-   flag? console.log('ShowBurger') : console.log('HideBurger');
-   flag? links.style.display = 'block' : links.style.display = 'none';
-}
 
 const BurgerMenu: FC<BurgerMenuProps> = (): React.FunctionComponentElement<BurgerMenuProps> => {
 
-   const links = document.getElementById('myLinks') as HTMLElement;
+   const [isDisplay, setDisplay] = useState<string>('none');
+
+   const handleDisplay = (flag: boolean) => {
+      flag? setDisplay('block') : setDisplay('none');
+   }
 
    return (
       <BurgerMenuWrapper className='topnav'>
          <div style={{backgroundColor: 'grey', width: 'fit-content', height: 51 + 'px', float: 'left'}}>
             <Hamburger color='whitesmoke' background-color='grey' rounded
-            onToggle={flag => {hideShowBurger(flag, links)}}/>
+            onToggle={handleDisplay}/>
          </div>
          
-         <div id="myLinks">
+         <div id="myLinks" style={{display: `${isDisplay}`}}>
                <a href="#news">Number</a>
                <a href="#contact">VinCode</a>
                <a href="#about">MarkModel</a>
