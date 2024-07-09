@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
-import Hamburger from 'hamburger-react';
+import { CenterPosition } from '../Header/Header.styled';
 
-export const BurgerMenuWrapper = styled.div.attrs({
-})`
-
+export const BurgerMenuWrapper = styled.div`
+    height: 100%;
+    width: 100%;
 `;
 
 export const SearcSelect = styled.p`

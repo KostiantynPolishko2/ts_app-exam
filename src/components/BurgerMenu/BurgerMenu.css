@@ -3,14 +3,9 @@
 /* Style the navigation menu */
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: transparent;
     position: relative;
 }
-
-/* Hide the links inside the navigation menu (except for logo/home) */
-/* .topnav #myLinks {
-    display: block;
-} */
 
 /* Style navigation menu links */
 .topnav a {

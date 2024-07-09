@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'the-new-css-reset';
-import { BrowserRouter } from 'react-router-dom';
 import MainPage from './components/MainPage/MainPage';
 import Header from './components/Header/Header';
+import { BlockMenu } from './components/Header/Header.styled';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(

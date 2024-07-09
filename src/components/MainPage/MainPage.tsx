@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import { MainPageWrapper } from './MainPage.styled';
 import { BrowserRouter } from 'react-router-dom';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import Header from '../Header/Header';
 import Section from '../Section/Section';
 
 interface MainPageProps {}
@@ -15,11 +16,11 @@ const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageP
 
    return (
       <BrowserRouter>
-         <BurgerMenu number='/number' vincode='/vincode' compare='/compare' 
-         _isDisplay={isDisplay} _handleDisplay={handleDisplay}
+         <Header 
+            _isDisplay={isDisplay} _handleDisplay={handleDisplay}
          />
          <Section number='/number' vincode='/vincode' compare='/compare'
-         _isDisplay={isDisplay}
+            _isDisplay={isDisplay}
          />
       </BrowserRouter>
    );
