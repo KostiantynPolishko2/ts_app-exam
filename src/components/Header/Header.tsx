@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react';
 import { HeaderWrapper } from './Header.styled';
 import { RowFlagBlue, RowFlagYellow, BlockMenu } from './Header.styled';
-import { BrowserRouter } from 'react-router-dom';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import './Header.css';
 
 interface HeaderProps {
    _isDisplay: string,
@@ -15,6 +15,7 @@ const Header: FC<HeaderProps> = (props): React.FunctionComponentElement<HeaderPr
       <HeaderWrapper>
          <RowFlagBlue/>
          <RowFlagYellow/>
+         <p className='header_name'>База Гаи 2024</p>
          <BlockMenu>
             <BurgerMenu 
                number='/number' vincode='/vincode' compare='/compare' 

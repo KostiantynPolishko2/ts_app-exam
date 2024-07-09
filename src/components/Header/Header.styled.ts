@@ -23,6 +23,6 @@ export const RowFlagYellow = styled.div`
 `;
 
 export const BlockMenu = styled(CenterPosition)`
-    width: 80%;
+    width: 70%;
     height: 55%;
 `;

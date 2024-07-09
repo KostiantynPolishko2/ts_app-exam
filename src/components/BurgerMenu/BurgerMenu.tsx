@@ -4,7 +4,6 @@ import { Link, Routes, Route, BlockerFunction } from 'react-router-dom';
 import { BurgerMenuWrapper } from './BurgerMenu.styled';
 import './BurgerMenu.css';
 import { ILinks } from '../Section/Section';
-import { SearcSelect } from './BurgerMenu.styled';
 
 interface BurgerMenuProps extends ILinks {
    _isDisplay: string,
@@ -21,11 +20,11 @@ const BurgerMenu: FC<BurgerMenuProps> = (props): React.FunctionComponentElement<
          </div>
          
          <div id="myLinks" style={{display: `${props._isDisplay}`}}>
-               <SearcSelect>Search by:</SearcSelect>
+               <p>Search by:</p>
                <Link to={props.number}>Number</Link>
                <Link to={props.vincode}>VinCode</Link>
          </div>
-         <Link to={props.compare} className="active">Compare</Link>
+         <Link to={props.compare} className="compare">Compare</Link>
       </BurgerMenuWrapper>
      );
 }
