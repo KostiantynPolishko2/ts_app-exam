@@ -5,14 +5,18 @@ import VinCode from './SubSection/VinCode';
 import Compare from './SubSection/Compare';
 import { Route, Routes } from 'react-router-dom';
 
-export interface SectionProps {
+export interface ILinks {
     number: string,
     vincode: string,
     compare: string
 }
 
-const Section: FC<SectionProps> = (props): ReactElement => (
-    <SectionWrapper>
+interface SectionProps extends ILinks{
+    _isDisplay: string
+}
+
+const Section: FC<SectionProps> = (props): React.FunctionComponentElement<SectionProps> => (
+    <SectionWrapper style={{display: `${props._isDisplay}`}}>
         <Routes>
             <Route loader path={props.number} element={<Number />}/>
             <Route path={props.vincode} element={<VinCode />}/>
