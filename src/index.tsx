@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import 'the-new-css-reset';
+import { BrowserRouter } from 'react-router-dom';
+import MainPage from './components/MainPage/MainPage';
 import Header from './components/Header/Header';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <Header/>
+    <MainPage/>
   </React.StrictMode>
 );
 
