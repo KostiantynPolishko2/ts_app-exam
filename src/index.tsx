@@ -2,13 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import FormSearch from './components/FormSearch/FormSearch';
+import 'the-new-css-reset';
+import MainPage from './components/MainPage/MainPage';
+import Header from './components/Header/Header';
+import { BlockMenu } from './components/Header/Header.styled';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
+    <MainPage/>
     <FormSearch labelTxt='VIN' placeholderTxt='Vin code'/>
   </React.StrictMode>
 );
