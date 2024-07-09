@@ -4,6 +4,7 @@ import './index.css';
 import 'the-new-css-reset';
 import { BrowserRouter } from 'react-router-dom';
 import MainPage from './components/MainPage/MainPage';
+import Header from './components/Header/Header';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
