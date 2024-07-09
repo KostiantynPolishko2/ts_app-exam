@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { MainPageWrapper } from './MainPage.styled';
 import { BrowserRouter } from 'react-router-dom';
-import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import FormSearch from '../FormSearch/FormSearch';
 import Header from '../Header/Header';
 import Section from '../Section/Section';
 
@@ -19,6 +19,7 @@ const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageP
          <Header 
             _isDisplay={isDisplay} _handleDisplay={handleDisplay}
          />
+         <FormSearch labelTxt='VIN' placeholderTxt='Vin code'/>
          <Section number='/number' vincode='/vincode' compare='/compare'
             _isDisplay={isDisplay}
          />

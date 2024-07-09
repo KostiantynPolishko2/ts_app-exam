@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { MiddlePosition } from '../Section/Section.styled';
 
-export const FormSearchWrapper = styled.div`
-    width: 80%;
-    margin-top: 1.5rem;
+export const FormSearchWrapper = styled(MiddlePosition)`
+    width: 85vw;
+    margin-top: 1.0rem;
+    display: block;
 `;
