@@ -6,16 +6,17 @@ import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 
 interface FormSearchProps {
-
+   labelTxt?: string,
+   placeholderTxt?: string,
 }
 
 const FormSearch: FC<FormSearchProps> = (props): React.FunctionComponentElement<FormSearchProps> => (
  <FormSearchWrapper>
     <Form>
       <Form.Group controlId='search_auto'>
-         <Form.Label>Поиск авто по номеру</Form.Label>
+         <Form.Label>Поиск авто по {props.labelTxt || 'номеру'}</Form.Label>
          <Stack direction='horizontal' gap={0}>
-            <Form.Control type='text' placeholder='Номерной знак'/>
+            <Form.Control type='text' placeholder={props.placeholderTxt || 'Номерной знак'}/>
             <Button name='search' type='button' form='search_auto' variant='primary' value='Поиск'>Поиск</Button>
          </Stack>
       </Form.Group>
