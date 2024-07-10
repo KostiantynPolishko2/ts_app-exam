@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { BurgerMenuWrapper } from './BurgerMenu.styled';
 import './BurgerMenu.css';
 import { ILinks } from '../Section/Section';
-import { FormDataContext } from '../MainPage/MainPage';
+import { FormDataContext, FormDisplayContext } from '../MainPage/MainPage';
 
 interface BurgerMenuProps extends ILinks {
    _isDisplay: string,
@@ -14,6 +14,7 @@ interface BurgerMenuProps extends ILinks {
 const BurgerMenu: FC<BurgerMenuProps> = (props): React.FunctionComponentElement<BurgerMenuProps> => {
 
    const handleFormData = useContext(FormDataContext);
+   const handleIsCompare = useContext(FormDisplayContext);
 
    return (
       <BurgerMenuWrapper className='topnav'>
@@ -21,12 +22,12 @@ const BurgerMenu: FC<BurgerMenuProps> = (props): React.FunctionComponentElement<
             <Hamburger color='whitesmoke' background-color='grey' rounded
             onToggle={props._handleDisplay}/>
          </div>
-         
+         <p>Menu:</p>
          <div id="myLinks" style={{display: `${props._isDisplay}`}}>
                <Link onClick={e => handleFormData({labelTxt: 'номеру', placeholderTxt: 'Номерной знак'})} to={props.number}>Number</Link>
                <Link onClick={e => handleFormData({labelTxt: 'VIN', placeholderTxt: 'VIN code'})} to={props.vincode}>VinCode</Link>
          </div>
-         <Link to={props.compare} className="compare">Compare</Link>
+         <Link onClick={e => {handleIsCompare(true)}} to={props.compare} className="compare">Compare</Link>
       </BurgerMenuWrapper>
      );
 }

@@ -10,7 +10,8 @@ const spaceLetterDigits = (digits: string ): string => {
 export const handleInput = (e: React.FormEvent<HTMLElement>): void => {
     (e.currentTarget as HTMLInputElement).value = (e.currentTarget as HTMLInputElement).value.
     replace(/[a-z]/gi, x => x.toUpperCase()).
-    replace(/\s/g, x => x.trim()).replace(/\S{8}/g, '');
+    replace(/\s/g, x => x.trim()).
+    replace(/\S{8}/g, '');
 }
 
 export const getDigits = (e?: React.FormEvent<HTMLElement>): string => {

@@ -6,8 +6,11 @@ export const MiddlePosition = styled.div`
     transform: translateX(-50%);
 `;
 
-export const SectionWrapper = styled(MiddlePosition)`
-    top: 30%;
+interface ISection {
+    _top?: number,
+}
+
+export const SectionWrapper = styled(MiddlePosition)<ISection>`
     width: 80vw;
     min-height: 100px;
     margin: 10px 0;
