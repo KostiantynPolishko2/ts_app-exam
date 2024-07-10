@@ -13,11 +13,11 @@ interface Size {
 }
 
 const main__br_radius = css`
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px 10px 10px 10px;
 `;
 
 const next__br_radius = css`
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 10px 10px;
 `;
 
 export const CarPhotoWrapper = styled.div<Size>`
