@@ -3,13 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import CarPhoto from './components/CarPhoto/CarPhoto';
 import reportWebVitals from './reportWebVitals';
+import { CarData, CarError } from './components/CarPhoto/FormIClass';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <CarPhoto />
+    <CarPhoto 
+    _id={'main'}
+    _width_photo={350}
+    _height_photo={300}
+    _car={new CarData()}
+    _error={new CarError()}
+    />
   </React.StrictMode>
 );
 
