@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, createContext} from 'react';
 import { MainPageWrapper } from './MainPage.styled';
 import { BrowserRouter } from 'react-router-dom';
 import FormSearch from '../FormSearch/FormSearch';
@@ -7,6 +7,13 @@ import Section from '../Section/Section';
 
 interface MainPageProps {}
 
+type FormData = {
+   labelTxt: string,
+   placeholderTxt: string,
+}
+
+export const FormDataContext = createContext((formData: FormData):void=>{});
+
 const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageProps> => {
 
    const [isDisplay, setDisplay] = useState<string>('none');
@@ -14,15 +21,22 @@ const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageP
       flag? setDisplay('block') : setDisplay('none');
    }
 
+   const [formData, setLabel] = useState<FormData>({labelTxt: '', placeholderTxt: ''});
+   const handleFormData = (formData: FormData): void => {
+      setLabel(formData);
+   }
+
    return (
       <BrowserRouter>
-         <Header 
-            _isDisplay={isDisplay} _handleDisplay={handleDisplay}
-         />
-         <FormSearch labelTxt='VIN' placeholderTxt='Vin code'/>
-         <Section number='/number' vincode='/vincode' compare='/compare'
-            _isDisplay={isDisplay}
-         />
+         <FormDataContext.Provider value={handleFormData}>
+            <Header 
+               _isDisplay={isDisplay} _handleDisplay={handleDisplay}
+            />
+            <FormSearch labelTxt={formData.labelTxt} placeholderTxt={formData.placeholderTxt} displayForm={isDisplay}/>
+            <Section number='/number' vincode='/vincode' compare='/compare'
+               _isDisplay={isDisplay}
+            />
+         </FormDataContext.Provider>
       </BrowserRouter>
    );
 }

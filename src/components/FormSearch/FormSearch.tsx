@@ -10,10 +10,11 @@ import Stack from 'react-bootstrap/Stack';
 interface FormSearchProps {
    labelTxt?: string,
    placeholderTxt?: string,
+   displayForm?: string,
 }
 
 const FormSearch: FC<FormSearchProps> = (props): React.FunctionComponentElement<FormSearchProps> => (
- <FormSearchWrapper>
+ <FormSearchWrapper _display={props.displayForm}>
     <Form>
       <Form.Group controlId='search_auto'>
          <Form.Label className='form'>Поиск авто по {props.labelTxt || 'номеру'}</Form.Label>
