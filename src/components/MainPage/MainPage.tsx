@@ -15,6 +15,7 @@ type FormData = {
 export const FormDataContext = createContext((formData: FormData):void=>{});
 export const FormDisplayContext = createContext((flag: boolean):void=>{});
 export const SectionTopContext = createContext<number>(0);
+export const CarNumberContext = createContext<string>('');
 
 const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageProps> => {
 
@@ -28,11 +29,17 @@ const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageP
    const handleFormData = (formData: FormData): void => {
       setLabel(formData);
       setIsCompare(false);
+      setNumberCar('none');
    }
 
    const [isCompare, setIsCompare] = useState<boolean>(false);
    const handleIsCompare = (flag: boolean):void => {
       setIsCompare(flag);
+   }
+
+   const [carNumber, setNumberCar] = useState<string>('none');
+   const handleCarNumber = (carNumber: string): void => {
+      setNumberCar(carNumber);
    }
 
    return (
@@ -44,9 +51,16 @@ const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageP
             />
          </FormDisplayContext.Provider>          
          </FormDataContext.Provider>
-            <FormSearch labelTxt={formData.labelTxt} placeholderTxt={formData.placeholderTxt} displayForm={isCompare? 'none': isDisplay}/>
+            <FormSearch 
+               labelTxt={formData.labelTxt} 
+               placeholderTxt={formData.placeholderTxt} 
+               displayForm={isCompare? 'none': isDisplay}
+               _handleCarNumber={handleCarNumber}
+               />
          <SectionTopContext.Provider value={isCompare? 0 : 30}>
+         <CarNumberContext.Provider value={carNumber}>
             <Section number='/number' vincode='/vincode' compare='/compare' _isDisplay={isDisplay}/>
+         </CarNumberContext.Provider>
          </SectionTopContext.Provider>
       </BrowserRouter>
    );

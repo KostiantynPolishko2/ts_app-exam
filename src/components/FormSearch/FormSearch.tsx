@@ -11,6 +11,7 @@ interface FormSearchProps {
    labelTxt?: string,
    placeholderTxt?: string,
    displayForm?: string,
+   _handleCarNumber: (carNumber: string) => void,
 }
 
 const FormSearch: FC<FormSearchProps> = (props): React.FunctionComponentElement<FormSearchProps> => (
@@ -20,9 +21,10 @@ const FormSearch: FC<FormSearchProps> = (props): React.FunctionComponentElement<
          <Form.Label className='form'>Поиск авто по {props.labelTxt || 'номеру'}</Form.Label>
          <Stack direction='horizontal' gap={0}>
             <Form.Control type='text' placeholder={props.placeholderTxt || 'Номерной знак'} className='form'
-            onKeyDown={handleInput}/>
+            onKeyDown={handleInput}
+            />
             <Button name='search' type='button' form='search_auto' variant='primary' className='form'
-            onClick={getDigits}>Поиск</Button>
+            onClick={e => props._handleCarNumber(getDigits(e))}>Поиск</Button>
          </Stack>
       </Form.Group>
     </Form>
