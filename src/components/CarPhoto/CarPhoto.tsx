@@ -17,7 +17,7 @@ interface ErrorProps {
    _error: CarError,
 }
 
-interface CarPhotoProps extends SizePhotoProps, IdPhotoProps, ErrorProps {
+export interface CarPhotoProps extends SizePhotoProps, IdPhotoProps, ErrorProps {
    _car: CarData,
 }
 

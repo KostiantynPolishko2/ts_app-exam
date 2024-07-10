@@ -14,7 +14,12 @@ interface FormSearchProps {
    _handleCarNumber: (carNumber: string) => void,
 }
 
+const clearInput = (e: React.FormEvent<HTMLElement>): void => {
+   (e.currentTarget as HTMLInputElement).value = '';
+}
+
 const FormSearch: FC<FormSearchProps> = (props): React.FunctionComponentElement<FormSearchProps> => (
+   
  <FormSearchWrapper _display={props.displayForm}>
     <Form>
       <Form.Group controlId='search_auto'>
@@ -22,6 +27,7 @@ const FormSearch: FC<FormSearchProps> = (props): React.FunctionComponentElement<
          <Stack direction='horizontal' gap={0}>
             <Form.Control type='text' placeholder={props.placeholderTxt || 'Номерной знак'} className='form'
             onKeyDown={handleInput}
+            onFocus={clearInput}
             />
             <Button name='search' type='button' form='search_auto' variant='primary' className='form'
             onClick={e => props._handleCarNumber(getDigits(e))}>Поиск</Button>

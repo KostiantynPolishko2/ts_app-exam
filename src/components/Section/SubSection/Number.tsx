@@ -1,11 +1,19 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect, ReactNode } from 'react';
 import CarPhoto from '../../CarPhoto/CarPhoto';
 import axios from 'axios';
 import { ICar, ICarOperations, CarData, CarError } from '../../CarPhoto/FormIClass';
 import { NumberWrapper, SecondRaw } from './Number.styled';
+import { CarPhotoProps } from '../../CarPhoto/CarPhoto';
 
 interface NumberProps {
    carNumber: string
+}
+
+const getFcCarPhoto = (index: number, car: CarData, error: CarError): React.FunctionComponentElement<CarPhotoProps> | ReactNode => {
+   if (index > 0){
+      return <CarPhoto _id={`second${index}`} _width_photo={400} _height_photo={300} _car={car} _error={error}/>
+   } 
+   return <></>
 }
 
 const Number: FC<NumberProps> = ({carNumber}): React.FunctionComponentElement<NumberProps> => {
@@ -55,9 +63,8 @@ const Number: FC<NumberProps> = ({carNumber}): React.FunctionComponentElement<Nu
    return (
       <NumberWrapper>
          <CarPhoto _id={'main'} _width_photo={500} _height_photo={400} _car={carsData[0]} _error={carError}/>
-         <SecondRaw>
-            {/* <CarPhoto _id={'second'} _width_photo={400} _height_photo={300} _car={carsData[1]} _error={carError}/>
-            <CarPhoto _id={'second'} _width_photo={400} _height_photo={300} _car={carsData[2]} _error={carError}/> */}
+         <SecondRaw>           
+            {carsData.map((item, index) => (getFcCarPhoto(index, item, carError)))}
          </SecondRaw>
       </NumberWrapper>
    );
