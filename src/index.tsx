@@ -2,12 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import CarPhoto from './components/CarPhoto/CarPhoto';
+import 'the-new-css-reset';
+import MainPage from './components/MainPage/MainPage';
+import Header from './components/Header/Header';
+import { BlockMenu } from './components/Header/Header.styled';
 import reportWebVitals from './reportWebVitals';
 import { CarData, CarError } from './components/CarPhoto/FormIClass';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <CarPhoto 
@@ -17,6 +22,7 @@ root.render(
     _car={new CarData()}
     _error={new CarError()}
     />
+    <MainPage/>
   </React.StrictMode>
 );
 
