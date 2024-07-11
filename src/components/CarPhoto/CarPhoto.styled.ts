@@ -27,6 +27,10 @@ export const CarPhotoWrapper = styled.div<Size>`
     width: ${props => props._width? props._width+'px' : _default};
     height: ${props => props._height? props._height+'px' : _default};
     ${props => props._border === 'main'? main__br_radius : next__br_radius}
+
+    & span.registered_at, span.model_year, span.model {
+        text-shadow: 2px 2px 2px black;
+    }
 `;
 
 export const CarPhotoImg = styled(PhotoImg).attrs({

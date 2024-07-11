@@ -22,7 +22,6 @@ const Number: FC<NumberProps> = ({carNumber}): React.FunctionComponentElement<Nu
 
    const [carsData, setCarData] = useState([new CarData()]);
    const [carError, setCarError] = useState(new CarError());
-   const [marksModels, setMarksModels] = useState(['']);
 
    const client = axios.create({
        baseURL: 'https://baza-gai.com.ua/nomer/',
@@ -52,32 +51,10 @@ const Number: FC<NumberProps> = ({carNumber}): React.FunctionComponentElement<Nu
                marks_models.push(cars[i].model);
             }
 
-            setMarksModels(marks_models);
             setCarData(cars);
             setCarError(new CarError());
       
-         }).then(() => {
-      
-            async function getPhotoUrls(markModel: string, index: number) {
-               const client = axios.create({
-                  baseURL: 'https://baza-gai.com.ua/make/',
-                  headers: {'Accept': 'application/json', 'X-Api-Key': key},
-                  method: 'get',
-                  responseType: 'json',
-               });
-            
-               const responce = await client.get(markModel);
-               console.log(responce.data['catalog_model']['photo_url']);
-               carsData[index].photo_url = responce.data['catalog_model']['photo_url'];
-            }
-
-            // for( let i = 0; i != marksModels.length; i++){
-            //    const [mark, model]: Array<string> = marksModels[i].toLowerCase().split(' ');
-            //    getPhotoUrls(`${mark}/${model}`, i);
-            //    console.log(marksModels[i]);
-            // }
-         }         
-         ).
+         }).         
          catch((error) => {
             // console.log('car error', error);
             setCarError(new CarError(true, error));

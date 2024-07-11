@@ -1,6 +1,6 @@
 export interface ICar {
     digits: string,
-    photo_url: string,
+    // photo_url: string,
 }
  
 interface ICarData {
@@ -24,7 +24,8 @@ export class CarData {
  
     constructor(car?: ICar, carData?: ICarData){
        this.digits = car?.digits?? '';
-       this.photo_url = car?.photo_url?? '';
+    //    this.photo_url = car?.photo_url?? '';
+       this.photo_url = './img/car_come_soon.jpg';
  
        this.registered_at = carData?.registered_at?? '';
        this.model_year = carData?.model_year?? '';
