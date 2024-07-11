@@ -1,11 +1,11 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, useEffect, useState } from 'react';
 import 'the-new-css-reset';
 import axios from 'axios';
 import * as card from './CarPhoto.styled';
 import * as plate from './CardPhotoPlate.styled';
 import { CarError, CarData } from './FormIClass';
 
-const key = '00cbd51c5f962dfa3b445a42e63d0160';
+const key = '349a1acb991de77d8d42744d27b6f379';
 
 interface IdPhotoProps {
    _id: number | string,
@@ -33,30 +33,6 @@ const getUrlPhoto = (status: number):string => {
    return './img/car_icon.jpg';
 }
 
-const fetchPhotoUrls = async(markModel: string): Promise<string> => {
-   const client = axios.create({
-      baseURL: 'https://baza-gai.com.ua/make/',
-      headers: {'Accept': 'application/json', 'X-Api-Key': key},
-      method: 'get',
-      responseType: 'json',
-   });
-
-   const [mark, model]: Array<string> = markModel.toLowerCase().split(' ');
-   const responce = await client.get(`${mark}/${model}`);
-
-   // console.log(responce.data['catalog_model']['photo_url']);
-   // carsData[index].photo_url = responce.data['catalog_model']['photo_url'];
-
-   return responce.data['catalog_model']['photo_url'];
-}
-
-const hanleCarPhoto = (e: React.FormEvent<HTMLElement>): void => {
-   // console.log(e.currentTarget.querySelector('span.model')?.textContent);
-   console.log('img new path');
-   (e.currentTarget.querySelector('img') as HTMLImageElement).src = require('./img/load.png');
-   // _img.style.backgroundImage = './img/load.png';
-}
-
 const CarPhoto: FC<CarPhotoProps> = (props): React.FunctionComponentElement<CarPhotoProps>=> {
 
    const getError = (flag: boolean):ReactElement<HTMLElement> => {
@@ -66,8 +42,41 @@ const CarPhoto: FC<CarPhotoProps> = (props): React.FunctionComponentElement<CarP
       return <></>
    }
 
+   const clickFetchPhotoUrls = async(markModel: string): Promise<string> => {
+
+      const client = axios.create({
+         baseURL: 'https://baza-gai.com.ua/make/',
+         headers: {'Accept': 'application/json', 'X-Api-Key': key},
+         method: 'get',
+         responseType: 'json',
+      });
+   
+      try{
+         const responce = await client.get(markModel);
+         return responce.data['catalog_model']['photo_url'];
+      }
+      catch{
+         return '';
+      }
+   }
+   
+   function hanleCarPhoto(): (e: React.FormEvent<HTMLElement>)=>void {
+      
+      let isUrl = false;
+
+      return async function (e: React.FormEvent<HTMLElement>) {
+         if(!isUrl){
+            const [model, mark]: Array<string> = e.currentTarget.querySelector('span.model')?.textContent?.toLowerCase().split(' ') || ['none', 'none'];
+            (e.currentTarget.querySelector('img') as HTMLImageElement).src = await clickFetchPhotoUrls(`${model}/${mark}`) || require('./img/error404.jpg');
+            isUrl = true;
+         }
+      }
+   }
+
+   const getUrlCarPhoto = hanleCarPhoto();
+
    return (
-      <card.CarPhotoWrapper onClick={hanleCarPhoto} _width={props._width_photo} _height={props._height_photo} _border='main'>
+      <card.CarPhotoWrapper onClick={getUrlCarPhoto} _width={props._width_photo} _height={props._height_photo} _border='main'>
         <card.CarPhotoImg src={props._car.photo_url != ''? require(`${props._car.photo_url}`) : require(`${getUrlPhoto(props._error.status)}`)}/>
         <card.CarPhotoInner _direction='column'>
            <card.ContentTop>
