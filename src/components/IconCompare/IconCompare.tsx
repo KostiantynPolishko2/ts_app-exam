@@ -20,7 +20,7 @@ const handleIcon = (e: React.FormEvent<HTMLElement>):void =>{
 const IconCompare: FC<IconCompareProps> = ({iconame}): React.FunctionComponentElement<IconCompareProps> => {
 
    return (
-      <IconCompareWrapper onClick={handleIcon}>
+      <IconCompareWrapper className='icon' onClick={handleIcon}>
          <i className={`fas ${iconame}`}></i>
       </IconCompareWrapper>
    );

@@ -1,5 +1,6 @@
-import React, { FC, useState, useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import Hamburger from 'hamburger-react';
+import IconCompare from '../IconCompare/IconCompare';
 import { Link } from 'react-router-dom';
 import { BurgerMenuWrapper } from './BurgerMenu.styled';
 import './BurgerMenu.css';
@@ -27,7 +28,9 @@ const BurgerMenu: FC<BurgerMenuProps> = (props): React.FunctionComponentElement<
                <Link onClick={e => handleFormData({labelTxt: 'номеру', placeholderTxt: 'Номерной знак'})} to={props.number}>Number</Link>
                <Link onClick={e => handleFormData({labelTxt: 'VIN', placeholderTxt: 'VIN code'})} to={props.vincode}>VinCode</Link>
          </div>
-         <Link onClick={e => {handleIsCompare(true)}} to={props.compare} className="compare">Compare</Link>
+         <Link onClick={e => {handleIsCompare(true)}} to={props.compare} className="compare">
+            <IconCompare iconame='fa-scale-balanced'/>
+         </Link>       
       </BurgerMenuWrapper>
      );
 }

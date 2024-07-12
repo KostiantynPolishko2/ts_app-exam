@@ -8,7 +8,7 @@
 }
 
 /* Style navigation menu links */
-.topnav a, p {
+.topnav #myLinks > a, p {
     float: left;
     color: white;
     padding: 14px 16px;
@@ -18,19 +18,14 @@
     text-shadow: 2px 2px 2px gray;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
-/* Style the hamburger menu */
-.topnav a.icon {
-    float: left;
-}
   
 /* Add a grey background color on mouse-over */
-.topnav a:hover {
+.topnav #myLinks > a:hover {
     background-color: rgb(173, 216, 230, 0.5);
     color: black;
 }
 
-.topnav a:active {
+.topnav #myLinks > :active {
     text-shadow: none;
     background-color: rgba(21, 255, 0, 0.822);
 }
@@ -38,7 +33,8 @@
   /* Style the active link (or home/logo) */
 .compare {
     position: absolute;
-    right: 0;
+    right: 0%;
+    top: 6%
 }
 
 .fa {
@@ -48,8 +44,4 @@
     text-rendering:auto;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale
-}
-
-.icon {
-    background-color: rgb(78, 83, 73);
 }

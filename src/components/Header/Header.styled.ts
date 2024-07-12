@@ -26,3 +26,18 @@ export const BlockMenu = styled(CenterPosition)`
     width: 70%;
     height: 55%;
 `;
+
+export const CompareCar = styled(CenterPosition)`
+    width: 15%;
+    height: 50%;
+    left: 72%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+    & > span {
+        margin-right: 5px;
+        color: aliceblue;
+        text-shadow: 3px 3px 3px black;
+    }
+`;

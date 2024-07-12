@@ -10,3 +10,7 @@ p.header_name {
     text-shadow: 3px 3px 3px whitesmoke;
     font-size: 25px;
 }
+
+.comare_car {
+    position: absolute;
+}

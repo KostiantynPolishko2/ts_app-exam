@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { HeaderWrapper } from './Header.styled';
-import { RowFlagBlue, RowFlagYellow, BlockMenu } from './Header.styled';
+import { RowFlagBlue, RowFlagYellow, BlockMenu, CompareCar } from './Header.styled';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import './Header.css';
 
@@ -22,6 +22,10 @@ const Header: FC<HeaderProps> = (props): React.FunctionComponentElement<HeaderPr
                _isDisplay={props._isDisplay} _handleDisplay={props._handleDisplay}
                />
          </BlockMenu>
+         <CompareCar>
+            <span>car1</span>
+            <span>car2</span>
+         </CompareCar>
       </HeaderWrapper>
    );
 }

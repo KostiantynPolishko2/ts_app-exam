@@ -4,6 +4,7 @@ import axios from 'axios';
 import * as card from './CarPhoto.styled';
 import * as plate from './CardPhotoPlate.styled';
 import { CarError, CarData } from './FormIClass';
+import IconCompare from '../IconCompare/IconCompare';
 
 const key = '349a1acb991de77d8d42744d27b6f379';
 
@@ -77,37 +78,40 @@ const CarPhoto: FC<CarPhotoProps> = (props): React.FunctionComponentElement<CarP
 
    return (
       <card.CarPhotoWrapper onClick={getUrlCarPhoto} _width={props._width_photo} _height={props._height_photo} _border='main'>
-        <card.CarPhotoImg src={props._car.photo_url != ''? require(`${props._car.photo_url}`) : require(`${getUrlPhoto(props._error.status)}`)}/>
-        <card.CarPhotoInner _direction='column'>
-           <card.ContentTop>
-              <plate.Number>
-                 <plate.NumberFlag _direction='column' _justify='space-around'>
-                    <plate.FlagIcon>
-                       <div></div>
-                       <div></div>
-                    </plate.FlagIcon>
-                    <plate.FlagCode>
-                       <span>UA</span>
-                    </plate.FlagCode>
-                 </plate.NumberFlag>
-                 <plate.NumberText>
-                    <span className='digits'>{props._car.digits || 'AA DDDD AA'}</span>
-                 </plate.NumberText>
-              </plate.Number>
-              <plate.DateRegistr>
-                 <span className='registered_at'>{props._car.registered_at || 'dd.mm.yyyy'}</span>
-              </plate.DateRegistr>
-           </card.ContentTop>
-               {getError(props._error.flag)}
-           <card.ContentBottom _direction='column' _justify='end' _align='start'>
-              <plate.DataMark>
-                 <span className='model_year'>{props._car.model_year || 'x-yyyy'}</span>
-              </plate.DataMark>
-              <plate.DataMark>
-                 <span className='model'>{props._car.model || 'x-model'}</span>
-              </plate.DataMark>
-           </card.ContentBottom>
-        </card.CarPhotoInner>
+         <card.CarPhotoImg src={props._car.photo_url != ''? require(`${props._car.photo_url}`) : require(`${getUrlPhoto(props._error.status)}`)}/>
+         <card.CarPhotoInner _direction='column'>
+            <card.ContentTop>
+               <div>
+                  <plate.Number style={{float: 'left'}}>
+                     <plate.NumberFlag _direction='column' _justify='space-around'>
+                        <plate.FlagIcon>
+                           <div></div>
+                           <div></div>
+                        </plate.FlagIcon>
+                        <plate.FlagCode>
+                           <span>UA</span>
+                        </plate.FlagCode>
+                     </plate.NumberFlag>
+                     <plate.NumberText>
+                        <span className='digits'>{props._car.digits || 'AA DDDD AA'}</span>
+                     </plate.NumberText>
+                  </plate.Number>
+                  <IconCompare iconame='fa-heart'/>
+               </div>
+               <plate.DateRegistr>
+                  <span className='registered_at'>{props._car.registered_at || 'dd.mm.yyyy'}</span>
+               </plate.DateRegistr>
+            </card.ContentTop>
+                  {getError(props._error.flag)}
+            <card.ContentBottom _direction='column' _justify='end' _align='start'>
+               <plate.DataMark>
+                  <span className='model_year'>{props._car.model_year || 'x-yyyy'}</span>
+               </plate.DataMark>
+               <plate.DataMark>
+                  <span className='model'>{props._car.model || 'x-model'}</span>
+               </plate.DataMark>
+            </card.ContentBottom>
+         </card.CarPhotoInner>
       </card.CarPhotoWrapper>
      );
 }
