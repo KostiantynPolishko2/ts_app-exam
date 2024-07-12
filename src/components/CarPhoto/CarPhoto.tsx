@@ -77,7 +77,7 @@ const CarPhoto: FC<CarPhotoProps> = (props): React.FunctionComponentElement<CarP
    const getUrlCarPhoto = hanleCarPhoto();
 
    return (
-      <card.CarPhotoWrapper onClick={getUrlCarPhoto} _width={props._width_photo} _height={props._height_photo} _border='main'>
+      <card.CarPhotoWrapper onClick={getUrlCarPhoto} className='car-photo' _width={props._width_photo} _height={props._height_photo} _border='main'>
          <card.CarPhotoImg src={props._car.photo_url != ''? require(`${props._car.photo_url}`) : require(`${getUrlPhoto(props._error.status)}`)}/>
          <card.CarPhotoInner _direction='column'>
             <card.ContentTop>

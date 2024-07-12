@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, FunctionComponentElement, useContext } from 'react';
 import { IconCompareWrapper } from './IconCompare.styled';
 import 'the-new-css-reset';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -15,6 +15,17 @@ export const handleIcon = (e: React.FormEvent<HTMLElement>):void =>{
    }
    else{
       ielement.style.color = ielement.style.color !== 'blue'? 'blue': 'whitesmoke';
+   }
+}
+
+export const handleSwitchOnIconHeart = (e: React.FormEvent<HTMLElement>, models: Array<string>): void =>{
+   const arrHtml = (e.currentTarget.getRootNode().lastChild?.lastChild as HTMLBodyElement).querySelectorAll('div.car-photo');
+   const size = arrHtml.length;
+   for(let i = 0; i != size; i++){
+      const model: string = arrHtml[i].querySelector('span.model')?.textContent?.toLowerCase() || '';
+      if(model !== models[0] && model !== models[1]){
+         (arrHtml[i].querySelector('i.fa-heart') as HTMLElement).style.color = 'whitesmoke';
+      }
    }
 }
 

@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import FormSearch from '../FormSearch/FormSearch';
 import Header from '../Header/Header';
 import Section from '../Section/Section';
-import { handleIcon } from '../IconCompare/IconCompare';
+import { handleIcon, handleSwitchOnIconHeart } from '../IconCompare/IconCompare';
 
 interface MainPageProps {}
 
@@ -47,14 +47,13 @@ const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageP
    const [modelMark, setModel] = useState<string>('');
    const handleModel = (e: React.FormEvent<HTMLElement>):void => {
       handleIcon(e);
+      if(modelMarks.length === 2){
+         handleSwitchOnIconHeart(e, modelMarks);
+      }
       setModel(e.currentTarget.parentElement?.parentElement?.nextElementSibling?.querySelector('span.model')?.textContent?.toLowerCase() || '');
    }
 
-   const handleModels = (): Array<string> => {
-      return []
-   };
    const [modelMarks, setModelMarks] = useState<Array<string>>([]);
-
    useEffect(() => {
       if(!modelMarks[0]){
          setModelMarks(modelMarks => {return modelMarks = [modelMark]});
@@ -70,7 +69,7 @@ const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageP
          }
       }
 
-      console.log(modelMarks);
+      // console.log(modelMarks);
    }, [modelMark]);
 
    return (
