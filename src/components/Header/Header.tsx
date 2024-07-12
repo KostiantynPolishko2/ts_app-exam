@@ -7,6 +7,7 @@ import './Header.css';
 interface HeaderProps {
    _isDisplay: string,
    _handleDisplay: (flag: boolean) => void,
+   _carsModel: Array<string>,
 }
 
 const Header: FC<HeaderProps> = (props): React.FunctionComponentElement<HeaderProps> => {
@@ -23,8 +24,8 @@ const Header: FC<HeaderProps> = (props): React.FunctionComponentElement<HeaderPr
                />
          </BlockMenu>
          <CompareCar>
-            <span>car1</span>
-            <span>car2</span>
+            <span>{props._carsModel[0] || 'none0'}</span>
+            <span>{props._carsModel[1] || 'none1'}</span>
          </CompareCar>
       </HeaderWrapper>
    );

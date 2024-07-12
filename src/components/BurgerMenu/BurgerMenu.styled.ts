@@ -6,11 +6,3 @@ export const BurgerMenuWrapper = styled.div`
     width: 100%;
     border: 1px solid black;
 `;
-
-export const ElemCompare = styled.div`
-    position: absolute;
-    float: none;
-    & > p {
-        float: none;
-    }
-`;

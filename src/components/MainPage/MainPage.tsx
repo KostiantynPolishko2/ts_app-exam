@@ -1,9 +1,10 @@
-import React, { FC, useState, createContext} from 'react';
+import React, { FC, useState, createContext, useEffect } from 'react';
 import { MainPageWrapper } from './MainPage.styled';
 import { BrowserRouter } from 'react-router-dom';
 import FormSearch from '../FormSearch/FormSearch';
 import Header from '../Header/Header';
 import Section from '../Section/Section';
+import { handleIcon } from '../IconCompare/IconCompare';
 
 interface MainPageProps {}
 
@@ -16,6 +17,7 @@ export const FormDataContext = createContext((formData: FormData):void=>{});
 export const FormDisplayContext = createContext((flag: boolean):void=>{});
 export const SectionTopContext = createContext<number>(0);
 export const CarNumberContext = createContext<string>('');
+export const CarsModelContext = createContext((e: React.FormEvent<HTMLElement>):void=>{});
 
 const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageProps> => {
 
@@ -42,12 +44,42 @@ const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageP
       setNumberCar(carNumber);
    }
 
+   const [modelMark, setModel] = useState<string>('');
+   const handleModel = (e: React.FormEvent<HTMLElement>):void => {
+      handleIcon(e);
+      setModel(e.currentTarget.parentElement?.parentElement?.nextElementSibling?.querySelector('span.model')?.textContent?.toLowerCase() || '');
+   }
+
+   const handleModels = (): Array<string> => {
+      return []
+   };
+   const [modelMarks, setModelMarks] = useState<Array<string>>([]);
+
+   useEffect(() => {
+      if(!modelMarks[0]){
+         setModelMarks(modelMarks => {return modelMarks = [modelMark]});
+      }
+      else{
+         if(modelMarks.length != 2){
+            setModelMarks(items => { return [...items, modelMark]});
+         }
+         else{
+            modelMarks[0] = modelMarks[1];
+            modelMarks[1] = modelMark;
+            setModelMarks(modelMarks);
+         }
+      }
+
+      console.log(modelMarks);
+   }, [modelMark]);
+
    return (
       <BrowserRouter>
          <FormDataContext.Provider value={handleFormData}>
          <FormDisplayContext.Provider value={handleIsCompare}>
             <Header 
                _isDisplay={isDisplay} _handleDisplay={handleDisplay}
+               _carsModel={modelMarks}
             />
          </FormDisplayContext.Provider>          
          </FormDataContext.Provider>
@@ -59,7 +91,9 @@ const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageP
                />
          <SectionTopContext.Provider value={isCompare? 0 : 30}>
          <CarNumberContext.Provider value={carNumber}>
+         <CarsModelContext.Provider value={handleModel}>
             <Section number='/number' vincode='/vincode' compare='/compare' _isDisplay={isDisplay}/>
+         </CarsModelContext.Provider>
          </CarNumberContext.Provider>
          </SectionTopContext.Provider>
       </BrowserRouter>
