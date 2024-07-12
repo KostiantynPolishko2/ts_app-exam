@@ -6,9 +6,13 @@ export const IconCompareWrapper = styled.span`
     & > i {
         background-color: lightgray;
         color: whitesmoke;
-        font-size: 30px;
+        font-size: 25px;
         padding: 10px;
         border: 1px solid black;
         border-radius: 3px;
+    }
+
+    & > i:hover {
+        text-shadow: -2px 4px 6px gray;
     }
 `;
