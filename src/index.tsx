@@ -9,7 +9,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <IconCompare />
+    <IconCompare iconame='fa-heart'/>
+    <IconCompare iconame='fa-scale-balanced'/>
   </React.StrictMode>
 );
 
