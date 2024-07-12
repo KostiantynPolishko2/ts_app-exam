@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import IconCompare from './components/IconCompare/IconCompare';
+import 'the-new-css-reset';
+import MainPage from './components/MainPage/MainPage';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <IconCompare iconame='fa-heart'/>
-    <IconCompare iconame='fa-scale-balanced'/>
+    <MainPage/>
   </React.StrictMode>
 );
 
