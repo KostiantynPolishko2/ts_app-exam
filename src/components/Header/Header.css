@@ -1,0 +1,16 @@
+.header_name {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translate(-50%, -50%);
+}
+
+p.header_name {
+    color: rgb(46, 40, 40);
+    text-shadow: 3px 3px 3px whitesmoke;
+    font-size: 25px;
+}
+
+.comare_car {
+    position: absolute;
+}

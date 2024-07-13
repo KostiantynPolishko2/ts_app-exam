@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import FormSearch from './components/FormSearch/FormSearch';
+import 'the-new-css-reset';
+import MainPage from './components/MainPage/MainPage';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <FormSearch />
+    <MainPage/>
   </React.StrictMode>
 );
 
