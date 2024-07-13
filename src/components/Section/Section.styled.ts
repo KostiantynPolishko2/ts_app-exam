@@ -7,7 +7,7 @@ export const MiddlePosition = styled.div`
 `;
 
 export const SectionWrapper = styled(MiddlePosition)`
-    width: fit-content;
+    min-width: max-content;
     margin: 10px 0;
     background-color: whitesmoke;
     box-shadow: 3px 3px 6px lightgray;

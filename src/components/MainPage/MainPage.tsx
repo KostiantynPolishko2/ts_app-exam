@@ -53,6 +53,8 @@ const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageP
       setModel(e.currentTarget.parentElement?.parentElement?.nextElementSibling?.querySelector('span.model')?.textContent?.toLowerCase() || '');
    }
 
+
+
    const [modelMarks, setModelMarks] = useState<Array<string>>([]);
    useEffect(() => {
       if(!modelMarks[0]){
@@ -89,7 +91,10 @@ const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageP
          <SectionTopContext.Provider value={isCompare? 0 : 30}>
          <CarNumberContext.Provider value={carNumber}>
          <CarsModelContext.Provider value={handleModel}>
-            <Section number='/number' vincode='/vincode' compare='/compare' _isDisplay={isDisplay}/>
+            <Section number='/number' vincode='/vincode' compare='/compare' 
+            _isDisplay={isDisplay}
+            _carsModel={modelMarks}
+            />
          </CarsModelContext.Provider>
          </CarNumberContext.Provider>
          </SectionTopContext.Provider>

@@ -13,7 +13,8 @@ export interface ILinks {
 }
 
 interface SectionProps extends ILinks{
-    _isDisplay?: string
+    _isDisplay?: string,
+    _carsModel: Array<string>,
 }
 
 const Section: FC<SectionProps> = (props): React.FunctionComponentElement<SectionProps> => {
@@ -21,12 +22,14 @@ const Section: FC<SectionProps> = (props): React.FunctionComponentElement<Sectio
     const _top = useContext(SectionTopContext);
     const _carNumber = useContext(CarNumberContext);
 
+    const messageFC = <div style={{backgroundColor: 'gray'}}><p style={{color: 'red'}}>Select two cars</p></div>
+
     return (
         <SectionWrapper style={{display: `${props._isDisplay}`, top: `${_top || 15}%`}}>
             <Routes >
                 {_carNumber !== 'none'? <Route path={props.number} element={<Number carNumber={_carNumber}/>}/> : <></>}
                 <Route path={props.vincode} element={<VinCode />}/>
-                <Route path={props.compare} element={<Compare/>}/>
+                {props._carsModel.length === 2? <Route path={props.compare} element={<Compare markModels={props._carsModel}/>}/> : <Route path={props.compare} element={messageFC}/>}
             </Routes>
         </SectionWrapper>
     );
