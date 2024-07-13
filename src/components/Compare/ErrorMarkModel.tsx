@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ErrorMarkModelWrapper, DisplayCenter } from "./Compare.styled";
+import { ErrorMarkModelWrapper, DisplayCenter } from "./CompareMarkModel.styled";
 
 interface IError {
     status: number

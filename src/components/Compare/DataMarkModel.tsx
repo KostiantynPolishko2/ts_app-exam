@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { DataMarkModelWrapper } from "./Compare.styled";
+import { DataMarkModelWrapper } from "./CompareMarkModel.styled";
 
 interface CatalogModelProps {
     photo_url: string,
@@ -23,7 +23,7 @@ interface DataMarkModelProps {
 export const DataMarkModel: FC<DataMarkModelProps> = (props): React.FunctionComponentElement<HTMLElement> => {
     return (
         <DataMarkModelWrapper id={`${props._dataMarkModel?.id}`} _imgPath={`${props._dataMarkModel?.catalog_model.photo_url}`}>
-            <p>Tittle:<span>{props._dataMarkModel?.full_title}</span></p>
+            <p style={{position: 'initial'}}>Tittle:<span>{props._dataMarkModel?.full_title}</span></p>
             <p>Price AVG:<span>{props._dataMarkModel?.catalog_model.price_avg} UAH</span></p>
             <p>Price max:<span>{props._dataMarkModel?.catalog_model.price_max} UAH</span></p>
             <p>Price min:<span>{props._dataMarkModel?.catalog_model.price_min} UAH</span></p>

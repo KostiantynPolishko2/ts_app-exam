@@ -1,8 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
 import axios from 'axios';
-import { CompareWrapper } from './Compare.styled';
+import { CompareMarkModelWrapper } from './CompareMarkModel.styled';
 import { DataMarkModel } from './DataMarkModel';
 import { ErrorMarkModel } from './ErrorMarkModel';
+
 
 interface CompareProps {
    modelMark: string,
@@ -29,7 +30,7 @@ interface IError {
    photo_url: string,
 };
 
-const Compare: FC<CompareProps> = ({modelMark}): React.FunctionComponentElement<HTMLElement> => {
+const CompareMarkModel: FC<CompareProps> = ({modelMark}): React.FunctionComponentElement<HTMLElement> => {
 
    const [dataModelMark, setDataModelMark] = useState<IModelMark | null>(null);
    const [errorModelMark, setErrorModelMark] = useState<IError | null>(null);
@@ -61,10 +62,10 @@ const Compare: FC<CompareProps> = ({modelMark}): React.FunctionComponentElement<
    useEffect(() => {fetchDataModelMark(modelMark);}, [modelMark]);
 
    return (
-      <CompareWrapper onLoad={() => {fetchDataModelMark(modelMark)}}>
+      <CompareMarkModelWrapper onLoad={() => {fetchDataModelMark(modelMark)}}>
          {isData? <DataMarkModel _dataMarkModel={dataModelMark}/> : <ErrorMarkModel _error={errorModelMark}/>}         
-      </CompareWrapper>
+      </CompareMarkModelWrapper>
      );
 }
 
-export default Compare;
+export default CompareMarkModel;
