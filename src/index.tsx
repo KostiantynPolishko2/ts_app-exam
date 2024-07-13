@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Compare from './components/Compare/Compare';
 import reportWebVitals from './reportWebVitals';
+import 'the-new-css-reset';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
