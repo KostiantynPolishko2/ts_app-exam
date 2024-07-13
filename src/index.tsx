@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Compare from './components/Compare/Compare';
-import reportWebVitals from './reportWebVitals';
 import 'the-new-css-reset';
+import MainPage from './components/MainPage/MainPage';
+import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <Compare modelMark={'bmw x3_'}/>
+    <MainPage/>
   </React.StrictMode>
 );
 

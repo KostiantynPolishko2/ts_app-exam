@@ -1,0 +1,35 @@
+.form {
+    font-size: 1.25rem;
+    font-weight: 400;
+    background-color: white;
+    color: #212529;
+}
+
+button.form {
+    padding: 0.5rem 1rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    margin-left: -1px;
+    margin-top: 8px;
+    border: 1px solid #212529;
+}
+
+button.form:hover {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+input.form:hover {
+    background-color: rgba(242, 246, 248, 0.9);
+}
+
+input.form {
+    margin-top: 0.5rem;
+    padding: 0.71rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+    border: 1px solid #ced4da;
+}
+
+label.form {
+    font-size: 1.25rem;
+}

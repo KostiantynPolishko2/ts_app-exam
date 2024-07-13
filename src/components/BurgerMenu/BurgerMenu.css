@@ -1,0 +1,47 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/* Style the navigation menu */
+.topnav {
+    overflow: hidden;
+    background-color: transparent;
+    position: relative;
+}
+
+/* Style navigation menu links */
+.topnav #myLinks > a, p {
+    float: left;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    text-shadow: 2px 2px 2px gray;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+  
+/* Add a grey background color on mouse-over */
+.topnav #myLinks > a:hover {
+    background-color: rgb(173, 216, 230, 0.5);
+    color: black;
+}
+
+.topnav #myLinks > :active {
+    text-shadow: none;
+    background-color: rgba(21, 255, 0, 0.822);
+}
+  
+  /* Style the active link (or home/logo) */
+.compare {
+    position: absolute;
+    right: 0%;
+    top: 6%
+}
+
+.fa {
+    display:inline-block;
+    font:normal normal normal 14px/1 FontAwesome;
+    font-size:1.5rem;
+    text-rendering:auto;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale
+}
