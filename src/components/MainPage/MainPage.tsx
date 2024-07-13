@@ -68,8 +68,6 @@ const MainPage: FC<MainPageProps> = (): React.FunctionComponentElement<MainPageP
             setModelMarks(modelMarks);
          }
       }
-
-      // console.log(modelMarks);
    }, [modelMark]);
 
    return (

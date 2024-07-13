@@ -24,8 +24,8 @@ const Header: FC<HeaderProps> = (props): React.FunctionComponentElement<HeaderPr
                />
          </BlockMenu>
          <CompareCar>
-            <span>{props._carsModel[0] || 'none0'}</span>
-            <span>{props._carsModel[1] || 'none1'}</span>
+            <span className='modelMark'>{props._carsModel[0] || ''}</span>
+            <span className='modelMark'>{props._carsModel[1] || ''}</span>
          </CompareCar>
       </HeaderWrapper>
    );
