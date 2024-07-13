@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const DisplayCenter = styled.div`
+export const DisplayCenter = styled.div`
     position: absolute;
     left: 50%;
     top: 50%;
@@ -46,6 +46,22 @@ export const DataMarkModelWrapper = styled(DisplayCenter)<ImgPath>`
     };
 `;
 
-export const ErrorMarkModelWrapper = styled.div`
-    background-color: lightgrey;
+export const ErrorMarkModelWrapper = styled(DisplayCenter)`
+    background-color: lightgoldenrodyellow;
+    width: 90%;
+    height: 90%;
+    background-image: url(${require('./img/error404.jpg')});
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    & > div {
+        top: 90%;
+    };
+    & p {
+        text-align: center;
+        color: red;
+        font-size: 20px;
+        font-weight: 700;
+        text-shadow: 1px 1px 2px black;
+    }
 `;

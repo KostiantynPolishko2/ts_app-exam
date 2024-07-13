@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Compare modelMark={'bmw x3'}/>
+    <Compare modelMark={'bmw x3_'}/>
   </React.StrictMode>
 );
 

@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import axios from 'axios';
 import { CompareWrapper } from './Compare.styled';
 import { DataMarkModel } from './DataMarkModel';
+import { ErrorMarkModel } from './ErrorMarkModel';
 
 interface CompareProps {
    modelMark: string,
@@ -24,7 +25,8 @@ interface IModelMark {
 interface IError {
    status: number
    code: string,
-   name: string
+   name: string,
+   photo_url: string,
 };
 
 const Compare: FC<CompareProps> = ({modelMark}): React.FunctionComponentElement<HTMLElement> => {
@@ -51,7 +53,7 @@ const Compare: FC<CompareProps> = ({modelMark}): React.FunctionComponentElement<
          setIsData(true);
       }
       catch (error){
-         setErrorModelMark({status: 404, code: 'ERR_BAD_REQUEST', name: 'AxiosError'});
+         setErrorModelMark({status: 404, code: 'ERR_BAD_REQUEST', name: 'AxiosError', photo_url: './img/error404.jpg'});
          setIsData(false);
       }
    }
@@ -60,7 +62,7 @@ const Compare: FC<CompareProps> = ({modelMark}): React.FunctionComponentElement<
 
    return (
       <CompareWrapper onLoad={() => {fetchDataModelMark(modelMark)}}>
-         <DataMarkModel _dataMarkModel={dataModelMark}/>
+         {isData? <DataMarkModel _dataMarkModel={dataModelMark}/> : <ErrorMarkModel _error={errorModelMark}/>}         
       </CompareWrapper>
      );
 }
